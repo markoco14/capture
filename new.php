@@ -27,12 +27,15 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
 <?php require "_header.php"; ?>
 <h1>New Note</h1>
-<p>Capture your thoughts</p>
 <form action="/new.php" method="POST">
-    <label for="title">Title</label>
-    <input id="title" name="title" type="text"/>
-    <label for="note">Note</label>
-    <textarea id="note" name="note"></textarea>
+    <div class="input-group">
+        <label for="title">Title</label>
+        <input id="title" name="title" type="text"/>
+    </div>
+    <div class="input-group">
+        <label for="note">Note</label>
+        <textarea id="note" name="note"></textarea>
+    </div>
     <button type="submit">Save note</button>
 </form>
 <?php require "_footer.php"; ?>

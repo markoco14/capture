@@ -3,11 +3,6 @@ require "_db.php";
 session_start();
 ?>
 
-<?php require "_header.php"; ?>
-<h1>hello world</h1>
-<p>The greatest capture site of all time.</p>                                                             
-<p>There will be a list of notes here</p>
-
 <?php
 $stmt = $db->query("
     SELECT note_id, title, content FROM notes ORDER BY note_id DESC;
@@ -15,10 +10,17 @@ $stmt = $db->query("
 $notes = $stmt->fetchAll(PDO::FETCH_OBJ);
 ?>
 
+<?php require "_header.php"; ?>
+<h1>Captive</h1>
+<p>Capture notes, pull notes, act on notes.</p>                                                             
+<ul>
 <?php foreach ($notes as $note): ?>    
+<li class="note">
     <h2><?= htmlspecialchars($note->title) ?></h2>
     <p><?=htmlspecialchars($note->content) ?></p>
+</li>
 <?php endforeach; ?>
+</ul>
 
 <?php
 if (isset($_SESSION['flash_message'])) {
