@@ -41,7 +41,7 @@ if ($_SERVER["REQUEST_METHOD"] === "DELETE") {
     http_response_code(405);
     echo json_encode([
         "status" => "error", 
-        "message" => "Method not allowed. Please use DELETE."
+        "message" => "Method not allowed."
     ]);
 }
 ?>
