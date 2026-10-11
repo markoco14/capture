@@ -1,8 +1,10 @@
 <?php
-require "../_db.php";
+require __DIR__ . "/_auth.php";
+require __DIR__ . "/../_db.php";
+
 session_start();
 
-header("Content-Type: application/json");
+header("Content-Type: application/json; charset=utf-8");
 
 if ($_SERVER["REQUEST_METHOD"] === "DELETE") {
     $input = json_decode(file_get_contents("php://input"), true);
